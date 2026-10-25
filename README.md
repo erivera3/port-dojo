@@ -4,7 +4,9 @@ Port Dojo is a cat-themed network-port learning game that combines visual memory
 
 I created this project while studying IT because memorizing a list of numbers was not enough. I wanted each number to connect to a scene I could picture, then practice recalling the service and port without looking.
 
-**Project status:** This repository currently documents the game. The game files and artwork have not been uploaded here, and a public playable version is not available from this repository yet.
+**[Play Port Dojo](https://erivera3.github.io/port-dojo/)** · [Download the single HTML file](https://github.com/erivera3/port-dojo/raw/refs/heads/main/index.html)
+
+The complete game is packaged in **index.html**, including both illustrated memory maps, styles, and JavaScript. Open it in a browser or play on GitHub Pages; no installation or build is required.
 
 ## The idea: turn a port number into a memory story
 
@@ -43,14 +45,16 @@ The study list follows the ports explicitly listed in **CompTIA A+ Core 1 220-12
 2. **Study a few scenes.** Say the service, port, and purpose aloud. For example: “SMTP, 25, sends mail between servers.”
 3. **Hide the picture and practice.** Type the port when shown a service, or type the service when shown a port.
 4. **Check the answer.** The matching illustration returns after the answer is revealed, connecting the fact back to its scene.
-5. **Rate your recall.** Choose Again, Hard, Good, or Easy. An incorrect typed answer must receive Again.
-6. **Return for due reviews.** The scheduler brings cards back over time.
+5. **Rate your recall.** Choose Again, Hard, Good, or Easy. You choose every rating yourself, including when your wording differs from the revealed answer. The game does not mark typed answers right or wrong or force a rating.
+6. **Keep practicing in Cram session**, or switch to Spaced review to return for scheduled cards.
 
 Choose one protocol family or practice them all. Select service → port, port → service, or both.
 
 For services with multiple roles, include the role in reverse answers. For example, port 67 requires **DHCP server**, while 68 requires **DHCP client**. FTP control/data and NetBIOS roles are also distinct.
 
-**Free practice** gives extra attempts without changing the review schedule.
+**Cram session is the default:** every filtered card is available immediately, with no daily cap, timer, or session cutoff. Again and Hard return cards sooner; Good and Easy return them later in the same session. Gaps are up to 2, 4, 8, and 16 other cards respectively, shortened for small decks. These are practical defaults, not scientifically optimized intervals. Cram ratings do not change saved spaced-review progress. The session queue resets when filters change or the page reloads.
+
+**Free practice** shuffles cards for extra attempts without changing the review schedule. **Spaced review** retains time-based scheduling for longer-term practice.
 
 ## How to learn from it
 
@@ -83,7 +87,7 @@ The game uses a **simplified SM-2-inspired scheduler with Anki-style ratings**. 
 
 Established review intervals grow according to the rating and the card’s ease factor. Forgotten review cards return to short relearning steps. Each direction has its own schedule.
 
-Due cards come first. The default daily allowance is eight new cards.
+In Spaced review, due cards come first and all new cards are available without a daily cap. Scheduled intervals apply only to Spaced review; Cram session lets you continue immediately.
 
 Progress is stored in the same browser and device. The Progress screen supports JSON backup export and import. Export before clearing browser data or moving devices. There is no account or cross-device sync, and backups are not Anki deck files.
 
@@ -91,9 +95,13 @@ Progress is stored in the same browser and device. The Progress screen supports 
 
 I supplied the learning goal, visual reference, memory-technique requirements, and direction for the study flow. The code, supporting illustrations, content organization, and checks were developed with AI assistance.
 
-The game uses HTML, CSS, JavaScript modules, and browser storage. Its design centers on the supplied illustrated cat poster, with additional NetBIOS and LDAP scenes.
+The downloadable game is one self-contained HTML file with embedded CSS, JavaScript, both illustrations, and browser storage. Its design centers on the supplied illustrated cat poster, with additional NetBIOS and LDAP scenes.
 
-Automated checks cover scheduling, learning and relearning steps, card counts, port coverage, and answer matching. This is a personal IT learning project.
+The source implementation was checked for scheduling, learning and relearning steps, card counts, port coverage, and unlimited cram queue cycling, including one-card decks. The bundled HTML was checked for JavaScript syntax and browser operation. Ratings are self-assessed. This is a personal IT learning project.
+
+## Run or host it yourself
+
+Download `index.html` and open it in a browser. To host on GitHub Pages, place it at the repository root and select **Settings → Pages → Deploy from a branch → main → / (root)**. There are no separate asset files or build dependencies. Browser progress is specific to the browser and origin; export a backup before moving between the hosted game and a downloaded copy.
 
 ## References
 
